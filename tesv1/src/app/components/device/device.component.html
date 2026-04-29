@@ -1,0 +1,94 @@
+<div class="top-container">
+    <button class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#adrCollapse"
+        aria-expanded="false" aria-controls="adrCollapse">
+        Create-Address</button>
+        <div class="collapse" id="adrCollapse">
+        <form (submit)="addAdr(streetOne.value,streetTwo.value, state.value, city.value, zip.value)">
+            <div class="mb-3">
+                <label for="street_one" class="form-label">Address 1: </label>
+                <input type="text" class="form-control" id="street_one" #streetOne>
+            </div>
+            <div class="mb-3">
+                <label for="street_two" class="form-label">Address 2: </label>
+                <input type="text" class="form-control" id="street_two" #streetTwo>
+            </div>
+            <div class="mb-3">
+                <label for="state_form" class="form-label">State: </label>
+                <input type="text" class="form-control" id="state_form" #state>
+            </div>
+            <div class="mb-3">
+                <label for="city_form" class="form-label">City: </label>
+                <input type="text" class="form-control" id="city_form" #city>
+            </div>
+            <div class="mb-3">
+                <label for="zip_form" class="form-label">Zip Code: </label>
+                <input type="text" class="form-control" id="zip_form" #zip maxlength="5" pattern="[0-9]*">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <div class="collapse" id="devCollapse">
+        <form (submit)="addDev(devName.value,addId.value)">
+            <div class="mb-3">
+                <label for="devName" class="form-label">Name: </label>
+                <input type="text" class="form-control" id="devName" #devName>
+            </div>
+            <div class="mb-3">
+                <label for="addrId" class="form-label">Address ID: </label>
+                <input type="text" class="form-control" id="addrId" #addId>
+            </div>
+            <button type="submit" class="btn btn-primary" (click)="addDev(devName.value,addId.value)" 
+            data-bs-toggle="collapse" data-bs-target="#devCollapse" aria-expanded="true" aria-controls="devCollapse">Submit</button>
+        </form>
+    </div>
+</div>
+
+<div class="bottom-container">
+    <div class="display-adr">
+        <table class="table">
+            <thead style="background-color: whitesmoke; position: sticky; top: 0;">
+                <tr>
+                    <th style="border-bottom-color: white !important; position: sticky; top:0;" scope="col">ID</th>
+                    <th style="border-bottom-color: white !important; position: sticky; top:0;" scope="col">Address 1</th>
+                    <th style="border-bottom-color: white !important; position: sticky; top:0;" scope="col">Address 2</th>
+                    <th style="border-bottom-color: white !important; position: sticky; top:0;" scope="col">State</th>
+                    <th style="border-bottom-color: white !important; position: sticky; top:0;" scope="col">City</th>
+                    <th style="border-bottom-color: white !important; position: sticky; top:0;" scope="col">Zip Code</th>
+                    <th style="border-bottom-color: white !important; position: sticky; top:0;" scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                <tr *ngFor="let addr of addrArr">
+                    <td>{{addr.id}}</td>
+                    <td>{{addr.address}}</td>
+                    <td>{{addr.address_two}}</td>
+                    <td>{{addr.state}}</td>
+                    <td>{{addr.city}}</td>
+                    <td>{{addr.zip}}</td>
+                    <td> <button  (click)="autoFillAddrId(addr.id)" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#devCollapse"
+                        aria-expanded="false" aria-controls="devCollapse">
+                        Create-Device</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="display-dev">
+        <table class="table">
+            <thead style="background-color: whitesmoke; position: sticky; top: 0;">
+                <tr>
+                    <th style="border-bottom-color: white !important; position: sticky; top:0;" scope="col">ID</th>
+                    <th style="border-bottom-color: white !important; position: sticky; top:0;" scope="col">Name</th>
+                    <th style="border-bottom-color: white !important; position: sticky; top:0;" scope="col">Address_Ids</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of devArr">
+                    <td>{{data.id}}</td>
+                    <td>{{data.name}}</td>
+                    <td>{{data.address_id}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

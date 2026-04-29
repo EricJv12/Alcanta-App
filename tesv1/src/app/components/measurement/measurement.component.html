@@ -1,0 +1,54 @@
+<div class="data-comp">
+    <div class="top-container">
+        <div class="display-data">
+            <h2>Sensor Data</h2>
+            <table class="table">
+                <thead style="background-color: whitesmoke; position: sticky; top: 0;">
+                    <tr>
+                        <th style="border-bottom-color: white !important; position: sticky; top:0;" scope="col">ID</th>
+                        <th style="border-bottom-color: white !important; position: sticky; top:0;" scope="col">pH</th>
+                        <th style="border-bottom-color: white !important; position: sticky; top:0;" scope="col">Water
+                            Level</th>
+                        <th style="border-bottom-color: white !important; position: sticky; top:0;" scope="col">Water
+                            Flow</th>
+                        <th style="border-bottom-color: white !important; position: sticky; top:0;" scope="col">Date
+                        </th>
+                        <th style="border-bottom-color: white !important; position: sticky; top:0;" scope="col">Time
+                        </th>
+                        <th style="border-bottom-color: white !important; position: sticky; top:0;" scope="col">Device
+                            ID</th>
+                        <th style="border-bottom-color: white !important; position: sticky; top:0;" scope="col">Actions
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    <tr *ngFor="let data of dataArr">
+                        <td>{{data.id}}</td>
+                        <td>{{data.ph}}</td>
+                        <td>{{data.wlevel}}</td>
+                        <td>{{data.wflow}}</td>
+                        <td>{{data.date}}</td>
+                        <td>{{data.time}}</td>
+                        <td>{{data.device_id}}</td>
+                        <td> <button class="btn btn-primary" (click)="addAlarm('unresolved',data.id)">Create Alarm</button></td> 
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <h1 style="font-size: 2rem;">Testing Graphs</h1>
+    <div class="graphs">
+        <div class="widget-phChart">
+            <h2 style="font-size: 2rem;">Graph for Daily pH values</h2>
+            <canvas #linechartpH></canvas>
+        </div>
+        <div class="widget-flowChart">
+            <h2 style="font-size: 2rem;">Graph for Daily Water Flow values</h2>
+            <canvas #chartFlow></canvas>
+        </div>
+        <!-- <div class="widget-areaChartFlow">
+            <h2 style="font-size: 2rem;">Area Chart</h2>
+            <canvas #areaChartFlow></canvas>
+        </div> -->
+    </div>
+</div>

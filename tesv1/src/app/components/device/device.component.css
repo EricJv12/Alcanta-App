@@ -1,0 +1,15 @@
+
+
+.bottom-container{
+    .display-adr{
+        overflow: auto;
+        max-height: 250px;
+        max-width: 100%;
+    }
+
+.display-dev {
+    overflow: auto;
+    max-height: 250px;
+    max-width: 100%;
+}
+}

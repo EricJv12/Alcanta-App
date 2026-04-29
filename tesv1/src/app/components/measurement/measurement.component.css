@@ -1,0 +1,25 @@
+.data-comp {
+    .display-data {
+        overflow: auto;
+        height: 250px;
+        max-width: 100%;
+    }
+
+    .graphs {
+        display: flex;
+        padding: 20px;
+        padding-bottom: 5px;
+        text-align: center;
+        /* color: #333333; */
+        font-size: 18px;
+        /* font-family: Arial; */
+        .widget-phChart{
+            max-height: 600px;
+            width: 700px;
+        }
+        .widget-flowChart{
+            max-height: 600px;
+            width: 700px;
+        }
+    }
+}

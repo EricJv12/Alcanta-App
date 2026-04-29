@@ -1,0 +1,49 @@
+<div class="user-comp">
+    <div class="user-Form">
+        <form (submit)="addUser(adName.value, adLname.value, adEmail.value, adPass.value)" >
+            <div class="mb-3">
+                <label for="name-form" class="form-label">Name: </label>
+                <input type="name" class="form-control" id="name-form" #adName>
+            </div>
+            <div class="mb-3">
+                <label for="lname-form" class="form-label">Last Name: </label>
+                <input type="lname" class="form-control" id="lname-form" #adLname>
+            </div>
+            <div class="mb-3">
+                <label for="email-form" class="form-label">Email address: </label>
+                <input type="email" class="form-control" id="email-form" aria-describedby="emailHelp" #adEmail>
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="password-form" class="form-label">Password: </label>
+                <input type="password" class="form-control" id="password-form" #adPass>
+            </div>
+            <button type="submit" (click)="addUser(adName.value, adLname.value, adEmail.value, adPass.value)" 
+            class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <h1>User Accounts</h1>
+    <div class="display-data">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                <tr *ngFor="let data of users">
+                    <td>{{data.name}}</td>
+                    <td>{{data.lname}}</td>
+                    <td>{{data.email}}</td>
+                    <td><button class="btn btn-primary" (click)="delUser(data.id)">Delete</button> </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+</div>

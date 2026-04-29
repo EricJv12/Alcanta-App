@@ -1,0 +1,48 @@
+<div class="alarm-container">
+    <div class="container-top">
+        <div class="update-form">
+            <h1>Update Alarm</h1>
+            <form (submit)="upAlarm(alarmID.value, alarmStat.value)">
+                <div class="mb-3">
+                    <label for="ID-form" class="form-label">ID: </label>
+                    <input type="text" class="form-control" id="ID-form" aria-describedby="id-help" #alarmID>
+                    <div id="id-help" class="form-text">Input the alarm ID you wish to update.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="stat-form" class="form-label">Status: </label>
+                    <input type="text" class="form-control" id="stat-form" aria-describedby="stat-help" #alarmStat>
+                    <div id="stat-help" class="form-text">Update alarm status: 'resolved', 'unresolved', 'in progress'
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary" (click)="upAlarm(alarmID.value, alarmStat.value)">Submit</button>
+            </form>
+        </div>
+    </div>
+    <div class="container-middle">
+        <div class="alarm-data">
+            <h1>Alarms</h1>
+            <div class="display-data">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Time</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-group-divider">
+                        <tr *ngFor="let data of dataArr">
+                            <td>{{data.id}}</td>
+                            <td>{{data.date}}</td>
+                            <td>{{data.time}}</td>
+                            <td>{{data.status}}</td>
+                            <td><button class="btn btn-primary" (click)="autoFillAlarmId(data.id)">Update</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

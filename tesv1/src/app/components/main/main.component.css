@@ -1,0 +1,29 @@
+/* .top-section {
+
+  } */
+.middle {
+    display: flex;
+    justify-content: space-between;
+    .mid-widget {
+        display: flex;
+        max-height: 100%;
+        max-width: 100%;
+        background-color: #fff;
+        border-radius: 5px;
+        margin: 10px;
+        .widget-areaChartFlow{
+          margin-top: 5%;
+          margin-right: 20px;
+          text-align: center;
+          min-height: 800px;
+          min-width: 800px;
+      }
+      .widget-areaChartpH{
+        margin-top: 5%;
+        margin-left: 20px;
+        text-align: center;
+        min-height: 800px;
+        min-width: 800px;
+      }
+    }
+}
